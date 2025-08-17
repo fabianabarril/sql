@@ -54,7 +54,8 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+On type 1 Slowling Changing dimension, we overrite the information, so we may only have the columns customer_id, street, city, state, postal_code, country, and updated_at - this last one to track when the information was updated. One customer would have only one row in the customer_address table. We should use update where customer_id is the one we need.
+On type 2, we want to keep track of all history of changes, so each customer may have several rows related in the customer_address_table. Each new address is a new row, and we refer to the last one when pulling the address for that customer. It would be more effective if the customers table had a foreing key for the address_id, which can be updated every time a new address is entered for them in the customer_address_table.
 ```
 
 ***
